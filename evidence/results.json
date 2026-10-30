@@ -1,0 +1,174 @@
+{
+  "executedAt": "2026-10-28T22:47:18.244Z",
+  "target": "https://www.saucedemo.com/",
+  "browser": "156.0.8078.4",
+  "platform": "win32",
+  "viewport": {
+    "width": 1280,
+    "height": 900
+  },
+  "fields": [
+    {
+      "name": "user-name",
+      "type": "text",
+      "required": false,
+      "maxLength": -1,
+      "autocomplete": ""
+    },
+    {
+      "name": "password",
+      "type": "password",
+      "required": false,
+      "maxLength": -1,
+      "autocomplete": ""
+    },
+    {
+      "name": "login-button",
+      "type": "submit",
+      "required": false,
+      "maxLength": -1,
+      "autocomplete": ""
+    }
+  ],
+  "results": [
+    {
+      "id": "TC-01",
+      "name": "Авторизация standard_user",
+      "expected": "Открыт каталог inventory.html",
+      "status": "PASS",
+      "actual": "https://www.saucedemo.com/inventory.html"
+    },
+    {
+      "id": "TC-02",
+      "name": "Добавление товара в корзину",
+      "expected": "Корзина содержит Sauce Labs Backpack и счётчик 1",
+      "status": "PASS",
+      "actual": "{\"badge\":\"1\",\"names\":[\"Sauce Labs Backpack\"]}"
+    },
+    {
+      "id": "TC-03",
+      "name": "Удаление товара из корзины",
+      "expected": "Корзина пуста, счётчик отсутствует",
+      "status": "PASS",
+      "actual": "{\"count\":0,\"badge\":0}"
+    },
+    {
+      "id": "TC-04",
+      "name": "Сортировка standard_user по возрастанию цены",
+      "expected": "Цены расположены по возрастанию",
+      "status": "PASS",
+      "actual": "[7.99,9.99,15.99,15.99,29.99,49.99]"
+    },
+    {
+      "id": "TC-05",
+      "name": "Сортировка problem_user по возрастанию цены",
+      "expected": "Цены расположены по возрастанию",
+      "status": "FAIL",
+      "actual": "{\"before\":[29.99,9.99,15.99,49.99,7.99,15.99],\"after\":[29.99,9.99,15.99,49.99,7.99,15.99]}"
+    },
+    {
+      "id": "AUTH-01",
+      "name": "Негативный сценарий авторизации",
+      "expected": "Epic sadface: Username is required",
+      "status": "PASS",
+      "username": "",
+      "password": "",
+      "actual": "Epic sadface: Username is required"
+    },
+    {
+      "id": "AUTH-02",
+      "name": "Негативный сценарий авторизации",
+      "expected": "Epic sadface: Password is required",
+      "status": "PASS",
+      "username": "standard_user",
+      "password": "",
+      "actual": "Epic sadface: Password is required"
+    },
+    {
+      "id": "AUTH-03",
+      "name": "Негативный сценарий авторизации",
+      "expected": "Epic sadface: Username is required",
+      "status": "PASS",
+      "username": "",
+      "password": "secret_sauce",
+      "actual": "Epic sadface: Username is required"
+    },
+    {
+      "id": "AUTH-04",
+      "name": "Негативный сценарий авторизации",
+      "expected": "Epic sadface: Username and password do not match any user in this service",
+      "status": "PASS",
+      "username": "standard_user",
+      "password": "wrong_password",
+      "actual": "Epic sadface: Username and password do not match any user in this service"
+    },
+    {
+      "id": "AUTH-05",
+      "name": "Негативный сценарий авторизации",
+      "expected": "Epic sadface: Username and password do not match any user in this service",
+      "status": "PASS",
+      "username": "unknown_user",
+      "password": "secret_sauce",
+      "actual": "Epic sadface: Username and password do not match any user in this service"
+    },
+    {
+      "id": "AUTH-06",
+      "name": "Негативный сценарий авторизации",
+      "expected": "Epic sadface: Sorry, this user has been locked out.",
+      "status": "PASS",
+      "username": "locked_out_user",
+      "password": "secret_sauce",
+      "actual": "Epic sadface: Sorry, this user has been locked out."
+    },
+    {
+      "id": "AUTH-07",
+      "name": "Негативный сценарий авторизации",
+      "expected": "Epic sadface: Username and password do not match any user in this service",
+      "status": "PASS",
+      "username": "STANDARD_USER",
+      "password": "secret_sauce",
+      "actual": "Epic sadface: Username and password do not match any user in this service"
+    },
+    {
+      "id": "AUTH-08",
+      "name": "Негативный сценарий авторизации",
+      "expected": "Epic sadface: Username and password do not match any user in this service",
+      "status": "PASS",
+      "username": "standard_user",
+      "password": "SECRET_SAUCE",
+      "actual": "Epic sadface: Username and password do not match any user in this service"
+    },
+    {
+      "id": "AUTH-09",
+      "name": "Негативный сценарий авторизации",
+      "expected": "Epic sadface: Username and password do not match any user in this service",
+      "status": "PASS",
+      "username": " standard_user ",
+      "password": "secret_sauce",
+      "actual": "Epic sadface: Username and password do not match any user in this service"
+    },
+    {
+      "id": "AUTH-10",
+      "name": "Негативный сценарий авторизации",
+      "expected": "Epic sadface: Username and password do not match any user in this service",
+      "status": "PASS",
+      "username": "' OR 1=1 --",
+      "password": "secret_sauce",
+      "actual": "Epic sadface: Username and password do not match any user in this service"
+    },
+    {
+      "id": "AUTH-11",
+      "name": "Позитивная авторизация",
+      "expected": "Открыт каталог, показаны 6 товаров",
+      "status": "PASS",
+      "actual": "https://www.saucedemo.com/inventory.html; товаров: 6"
+    },
+    {
+      "id": "AUTH-12",
+      "name": "Выход и защита каталога",
+      "expected": "После выхода прямой переход в каталог отклонён",
+      "status": "PASS",
+      "actual": "Epic sadface: You can only access '/inventory.html' when you are logged in."
+    }
+  ]
+}
